@@ -1,98 +1,141 @@
-package net.sharkfw.apps.sharknet;
+package sharknet;
+
+import net.sharkfw.knowledgeBase.Knowledge;
+import net.sharkfw.knowledgeBase.PeerSTSet;
+import net.sharkfw.knowledgeBase.PeerSemanticTag;
+import net.sharkfw.knowledgeBase.SharkCS;
+import net.sharkfw.peer.KEPConnection;
+import net.sharkfw.peer.KnowledgePort;
+import net.sharkfw.peer.SharkEngine;
+
 /**
- *
- * @author s0539720
+ * Created by _Wayne- on 05.05.2015.
  */
-public interface ProfileKP  {
-    public void doExpose(SharkCS interest, KEPConnection kepConnection);
-    
-    public void doInsert(Knowledge k, KEPConnection kepConnection);
-    
-    /**
-     * Ask a certain peer to send his/her profil
-     * @param peer 
-     */
-    public void ask4Profile(PeerSemanticTag peer);
-    
-    /**
-     * Ask multiple peers for their profiles
-     * @param peers 
-     */
-    public void ask4Profiles(PeerSTSet peers);
-    
-    /**
-     * Ask all peers in the surrounding area for their profiles
-     */
-    public void ask4Profiles();
-    
-    /**
-     * Send your own profile or the profile of someone else to a certain recipient
-     * @param profileCP
-     * @param recipient 
-     */
-    public void sendProfile(ContextPoint profileCP, PeerSemanticTag recipient);
-    
-    /**
-     * Send your own profile or the profile of someone else to multiple recipients
-     * @param profileCP
-     * @param recipients 
-     */
-    public void sendProfile(ContextPoint profileCP, PeerSTSet recipients);
-    
-    /**
-     * Send your profile to everyone in the surrounding area
-     */
-    public void sendProfile();
-    
-    /**
-     * Send multiple profiles to a certain recipient
-     * @param profileCPs
-     * @param recipient 
-     */
-    public void sendProfiles(ContextPoint[] profileCPs, PeerSemanticTag recipient);
-    
-    /**
-     * Send multiple profiles to multiple recipients
-     * @param profileCPs
-     * @param recipients 
-     */
-    public void sendProfiles(ContextPoint[] profileCPs, PeerSTSet recipients);
-    
-    /**
-     * Save a received profile to your knowledge base
-     * @param profileCP 
-     */
-    public void saveProfile(ContextPoint profileCP);
-    
-    /**
-     * Delete a profile from your knowledge base
-     * @param profileCP 
-     */
-    public void deleteProfile(ContextPoint profileCP);
-    
-    /**
-     *  Add a peer to a contact list.
-     * @param peer
-     * @param contactList 
-     */
-    public void addPeer2ContactList(PeerSemanticTag peer, PeerSTSet contactList);
-    
-    /**
-     * Delete a peer from a contact list
-     * @param peer
-     * @param contactList 
-     */
-    public void deletePeerFromContactList(PeerSemanticTag peer, PeerSTSet contactList);
-    
-    /**
-     * Check when a peer profile was updated last and if you have the current version
-     * @param profile 
-     */
-    public void check4Update(PeerSemanticTag profile);
-    
-    /**
-     * Check when peer profiles (e.g. all profiles in a contact list) were updated last and if you have the current version
-     * @param profiles 
-     */
-    public void check4Update(PeerSTSet profiles);
+public class ProfileKP extends KnowledgePort implements ProfileKPApp, ProfileKPConfig {
+    private final PeerSemanticTag owner;
+
+    public ProfileKP(SharkEngine se, PeerSemanticTag owner){
+        super(se);
+        this.owner = owner;
+    }
+
+    @Override
+    protected void doExpose(SharkCS interest, KEPConnection kepConnection) {
+        //
+    }
+
+    @Override
+    protected void doInsert(Knowledge knowledge, KEPConnection kepConnection) {
+
+    }
+
+    @Override
+    public void ask4Profiles(PeerSTSet peers) {
+
+    }
+
+    @Override
+    public void ask4Profiles() {
+
+    }
+
+    @Override
+    public void sendMyProfile() {
+
+    }
+
+    @Override
+    public void sendProfiles(PeerSTSet profiles, PeerSTSet recipients) {
+
+    }
+
+    @Override
+    public void setAcceptWithoutVerification(boolean acceptWithoutVerification) {
+
+    }
+
+    @Override
+    public boolean getAcceptWithoutVerification() {
+        return false;
+    }
+
+    @Override
+    public void setSendProfiles2UnknownPeer(boolean sendProfiles2UnknownPeer) {
+
+    }
+
+    @Override
+    public boolean getSendProfiles2UnknownPeer() {
+        return false;
+    }
+
+    @Override
+    public void setSendProfileAutomaticallyOnProfileRequest(boolean sendProfileAutomaticallyOnProfileRequest) {
+
+    }
+
+    @Override
+    public boolean getSendProfileAutomaticallyOnProfileRequest() {
+        return false;
+    }
+
+    @Override
+    public void setSendProfileAutomaticallyOnProfileReception(boolean sendProfileAutomaticallyOnProfileReception) {
+
+    }
+
+    @Override
+    public boolean getSendProfileAutomaticallyOnProfileReception() {
+        return false;
+    }
+
+    @Override
+    public void setAsk4ProfileAutomaticallyOnProfileRequest(boolean ask4ProfileAutomaticallyOnProfileRequest) {
+
+    }
+
+    @Override
+    public boolean getAst4ProfileAutomaticallyOnProfileRequest() {
+        return false;
+    }
+
+    @Override
+    public void setAsk4ProfileAutomaticallyOnProfileReception(boolean ask4ProfileAutomaticallyOnProfileReception) {
+
+    }
+
+    @Override
+    public boolean getAst4ProfileAutomaticallyOnProfileReception() {
+        return false;
+    }
+
+    @Override
+    public void setAsk4ProfilesAutomaticallyOnProfileRequest(boolean ask4ProfilesAutomaticallyOnProfileRequest) {
+
+    }
+
+    @Override
+    public boolean getAst4ProfilesAutomaticallyOnProfileRequest() {
+        return false;
+    }
+
+    @Override
+    public void setAsk4ProfilesAutomaticallyOnProfileReception(boolean ask4ProfilesAutomaticallyOnProfileReception) {
+
+    }
+
+    @Override
+    public boolean getAst4ProfilesAutomaticallyOnProfileReception() {
+        return false;
+    }
+
+    @Override
+    public void setAcceptProfileWithDifferentOwner(boolean acceptProfileWithDifferentOwner) {
+
+    }
+
+    @Override
+    public boolean getAcceptProfileWithDifferentOwner() {
+        return false;
+    }
 }
