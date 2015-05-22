@@ -1,6 +1,10 @@
 package sharknet;
 
 import net.sharkfw.knowledgeBase.PeerSTSet;
+import net.sharkfw.knowledgeBase.SharkKBException;
+import net.sharkfw.system.SharkSecurityException;
+
+import java.io.IOException;
 
 /**
  * Created by s0539720 on 29.04.2015.
@@ -8,9 +12,10 @@ import net.sharkfw.knowledgeBase.PeerSTSet;
 public interface ProfileKPApp {
     /**
      * Ask a peer or multiple peers to send their profiles
+     * alle!!
      * @param peers
      */
-    public void ask4Profiles(PeerSTSet peers);
+    public void ask4Profiles(PeerSTSet peers) throws SharkKBException, SharkSecurityException, IOException;
 
     /**
      * Ask all peers in the surrounding area for their profiles
@@ -27,5 +32,5 @@ public interface ProfileKPApp {
      * @param profiles
      * @param recipients
      */
-    public void sendProfiles(PeerSTSet profiles, PeerSTSet recipients);
+    public void sendProfiles(PeerSTSet profiles, PeerSTSet recipients) throws SharkSecurityException, IOException, SharkKBException;
 }

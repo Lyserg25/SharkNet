@@ -20,51 +20,19 @@ public interface ProfileKPConfig {
 
     /**
      * Configuration to determine whether the users own profile is sent automatically when a peer asks for a
-     * profile
-     * @param sendProfileAutomaticallyOnProfileRequest
+     * profile or when a profile is received
+     * @param sendProfileAutomatically
      */
-    public void setSendProfileAutomaticallyOnProfileRequest(boolean sendProfileAutomaticallyOnProfileRequest);
-    public boolean getSendProfileAutomaticallyOnProfileRequest();
+    public void setSendProfileAutomatically(boolean sendProfileAutomatically);
+    public boolean getSendProfileAutomatically();
 
     /**
-     * Configuration to determine whether the users own profile is sent automatically when the user receives a profile
-     * from a peer
-     * @param sendProfileAutomaticallyOnProfileReception
+     * Configuration to determine whether the peer that requests a profile from the user or sends a profile to the user
+     * is asked for all of his/her profiles automatically
+     * @param ask4ProfilesAutomatically
      */
-    public void setSendProfileAutomaticallyOnProfileReception(boolean sendProfileAutomaticallyOnProfileReception);
-    public boolean getSendProfileAutomaticallyOnProfileReception();
-
-    /**
-     * Configuration to determine whether the peer that requests a profile from the user is asked for his profile
-     * as well automatically
-     * @param ask4ProfileAutomaticallyOnProfileRequest
-     */
-    public void setAsk4ProfileAutomaticallyOnProfileRequest(boolean ask4ProfileAutomaticallyOnProfileRequest);
-    public boolean getAst4ProfileAutomaticallyOnProfileRequest();
-
-    /**
-     * Configuration to determine whether the peer that sends a profile to the user is asked for his profile
-     * as well automatically, unless it already is his/her profile that was sent
-     * @param ask4ProfileAutomaticallyOnProfileReception
-     */
-    public void setAsk4ProfileAutomaticallyOnProfileReception(boolean ask4ProfileAutomaticallyOnProfileReception);
-    public boolean getAst4ProfileAutomaticallyOnProfileReception();
-
-    /**
-     * Configuration to determine whether the peer that requests a profile from the user is asked for all of
-     * his profiles automatically
-     * @param ask4ProfilesAutomaticallyOnProfileRequest
-     */
-    public void setAsk4ProfilesAutomaticallyOnProfileRequest(boolean ask4ProfilesAutomaticallyOnProfileRequest);
-    public boolean getAst4ProfilesAutomaticallyOnProfileRequest();
-
-    /**
-     * Configuration to determine whether the peer that sends a profile to the user is asked for all of his profiles
-     * automatically
-     * @param ask4ProfilesAutomaticallyOnProfileReception
-     */
-    public void setAsk4ProfilesAutomaticallyOnProfileReception(boolean ask4ProfilesAutomaticallyOnProfileReception);
-    public boolean getAst4ProfilesAutomaticallyOnProfileReception();
+    public void setAsk4ProfilesAutomatically(boolean ask4ProfilesAutomatically);
+    public boolean getAsk4ProfilesAutomatically();
 
     /**
      * Configuration whether a profile should be accepted if the owner is someone else than the person that the
@@ -73,4 +41,20 @@ public interface ProfileKPConfig {
      */
     public void setAcceptProfileWithDifferentOwner(boolean acceptProfileWithDifferentOwner);
     public boolean getAcceptProfileWithDifferentOwner();
+
+    /**
+     * Configuration to determine whether peers with whom a WiFi-Direct connection is established are asked for their
+     * profiles automatically
+     * @param ask4ProfilesAutomaticallyOnWiFiDirectConnection
+     */
+    public void setAsk4ProfilesAutomaticallyOnWiFiDirectConnection(boolean ask4ProfilesAutomaticallyOnWiFiDirectConnection);
+    public boolean getAsk4ProfilesAutomaticallyOnWiFiDirectConnection();
+
+    /**
+     * Configuration to determine whether the users profile is send automatically when a WiFi-Direct connection is
+     * established
+     * @param sendProfileAutomaticallyOnWiFiDirectConnection
+     */
+    public void setSendProfileAutomaticallyOnWiFiDirectConnection(boolean sendProfileAutomaticallyOnWiFiDirectConnection);
+    public boolean getSendProfileAutomaticallyOnWiFiDirectConnection();
 }
